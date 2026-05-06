@@ -1,0 +1,17 @@
+name: gram-sahayak
+metadata:
+  template: gram-sahayak-azure-rag-mvp
+services:
+  api:
+    project: backend
+    host: appservice
+    language: python
+  pipeline:
+    project: pipeline
+    host: function
+    language: python
+  web:
+    project: frontend
+    host: staticwebapp
+    language: js
+
