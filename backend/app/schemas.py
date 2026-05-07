@@ -15,3 +15,14 @@ class SourceChunk(BaseModel):
 class AskResponse(BaseModel):
     answer: str
     sources: list[SourceChunk]
+
+
+class CreateUploadUrlRequest(BaseModel):
+    filename: str = Field(min_length=1, max_length=260)
+    content_type: str = Field(default="application/pdf", min_length=3, max_length=200)
+
+
+class CreateUploadUrlResponse(BaseModel):
+    upload_url: str
+    blob_name: str
+    expires_in_seconds: int

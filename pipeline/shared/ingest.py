@@ -43,10 +43,10 @@ class IngestionService:
             credential=AzureKeyCredential(settings.azure_search_api_key),
         )
         self.splitter = RecursiveCharacterTextSplitter(
-            # RecursiveCharacterTextSplitter sizes are in characters (not tokens).
-            # ~1800 chars tends to land near ~500 tokens for many scheme PDFs.
-            chunk_size=1800,
-            chunk_overlap=200,
+            # Slightly smaller chunks with higher overlap improve recall for eligibility/details
+            # that span heading + bullet boundaries in policy PDFs.
+            chunk_size=1400,
+            chunk_overlap=250,
             separators=["\n\n", "\n", ". ", " ", ""],
         )
 

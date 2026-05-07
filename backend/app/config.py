@@ -19,9 +19,15 @@ class Settings(BaseSettings):
     azure_search_content_field: str = "content"
     azure_search_id_field: str = "id"
     azure_search_source_field: str = "source_file"
-    azure_search_top_k: int = 4
+    azure_search_top_k: int = 8
+    azure_search_candidate_pool: int = 24
 
     cors_origins: str = "*"
+
+    blob_storage_connection_string: str | None = None
+    blob_container_name: str = "incoming"
+
+    enable_query_translation_for_retrieval: bool = True
 
     @property
     def cors_origin_list(self) -> list[str]:

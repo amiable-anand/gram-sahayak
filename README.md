@@ -195,4 +195,25 @@ Set these for the Web App and Function App (values documented in `.env.example`)
 
 See `docs/RUNBOOK.md`.
 
+## One-command local run (recommended)
+
+After you’ve logged into Azure CLI (`az login`) and created resources in `gram-sahayak-rg`, you can run everything with:
+
+```powershell
+cd C:\Users\91953\gram-sahayak
+.\run-local.ps1
+```
+
+What it does:
+
+- pulls **fresh** Azure OpenAI/Search/Storage values from Azure (prevents the blob connection string issue)
+- writes/updates:
+  - `backend/.env`
+  - `pipeline/local.settings.json`
+  - `frontend/.env`
+- opens 2–3 terminals to start:
+  - backend (`uvicorn`)
+  - frontend (`vite`)
+  - pipeline (`func start`) if installed
+
 

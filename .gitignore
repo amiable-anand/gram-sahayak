@@ -11,3 +11,4 @@ coverage/
 frontend/.env
 backend/.env
 pipeline/.env
+pipeline/local.settings.json
